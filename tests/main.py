@@ -14,16 +14,16 @@ class Test_link():
         'lesson_number',
         [i for i in range(236895, 236906) if (
             i > 236894 and i < 236900) or (i > 236902 and i < 236906)])
-    def test_link(self, chrome_driver, lesson_number):
+    def test_link(self, driver, lesson_number):
         link = f'https://stepik.org/lesson/{lesson_number}/step/1/'
-        chrome_driver.get(link)
-        textarea = chrome_driver.find_element(
+        driver.get(link)
+        textarea = driver.find_element(
             By.CSS_SELECTOR, 'textarea.string-quiz__textarea')
         textarea.send_keys(str(math.log(int(time.time()))))
-        submit_button = chrome_driver.find_element(
+        submit_button = driver.find_element(
             By.CSS_SELECTOR, 'button.submit-submission')
         submit_button.click()
-        result = chrome_driver.find_element(
+        result = driver.find_element(
             By.CSS_SELECTOR, '.smart-hints__hint').text
 
         assert result == "Correct!", f'result "{result}" does not match "Correct!"'
