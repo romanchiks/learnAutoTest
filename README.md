@@ -17,4 +17,3 @@ https://stepik.org/lesson/237240/step/9?unit=209628
 
 1. pytest --language=es test_items.py
 2. (до проверки добавить в test_items.py команду time.sleep(30) после команды driver.get()) pytest --language=fr test_items.py
-3.
